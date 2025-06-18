@@ -2,3 +2,7 @@
     background-color: #FBD4C9 !important;
     border-radius: 8px !important;
 }
+
+.navbar {
+    border-bottom: 1px solid #F05228;
+}
