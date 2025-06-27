@@ -9,7 +9,7 @@ const NavBar = () => {
                 <img src="/FaithTech Logo Text - Grey Orange (1) 1.svg" alt="FaithTech" style={{maxHeight: "50px"}}/>
             </NavLink>    
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul className="navbar-nav">
@@ -19,7 +19,7 @@ const NavBar = () => {
                     </NavLink>
                     </li>
                     <li className="nav-item">
-                    <NavLink className={({ isActive }) => isActive ? "nav-link active-navlink" : "nav-link"} to="/produtos">
+                    <NavLink className={({ isActive }) => isActive ? "nav-link active-navlink" : "nav-link"} to="/artigos">
                         Quem somos
                     </NavLink>
                     </li>
