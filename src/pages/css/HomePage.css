@@ -1,0 +1,17 @@
+.quemsomos{
+    background-color: var(--secondary3);
+    outline: 10px solid var(--secondary3);
+    padding: 100px 0;
+    width: calc(98vw);
+    margin-left: calc(50% - 49vw);
+    margin-right: calc(50% - 49vw);
+    color: var(--white);
+    font-family: "Arimo", sans-serif;
+}
+.quemsomos h1{
+    font-weight: bold;
+    font-size: 3rem;
+}
+.quemsomos p{
+    font-size: 1.4rem;
+}

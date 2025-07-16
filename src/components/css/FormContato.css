@@ -1,0 +1,30 @@
+.formcontato > form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* text-align: center; */
+    align-items: center;
+}
+
+.formcontato button{
+    background-color: var(--primary2);
+    border-radius: 25px;
+    border-color: transparent;
+    color: var(--white);
+    width: 300px;
+    height: 40px;
+}
+.formcontato label{
+    width: 100%;
+}
+.formcontato input{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.021);
+    border-color: transparent;
+    border-radius: 10px;
+    outline: 1px solid var(--primary4);
+    box-shadow: 0px 3px 0px var(--primary2);
+}
+.formcontato input:focus{
+    outline: 1px solid var(--primary1);
+}
