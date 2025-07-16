@@ -1,0 +1,10 @@
+.title{
+    font-family: "Arimo", sans-serif;
+    font-size: 24pt;
+    color: var(--secondary1);
+}
+.subtitle{
+    font-family: "Arimo", sans-serif;
+    font-size: 20pt;
+    color: var(--secondary2);
+}
