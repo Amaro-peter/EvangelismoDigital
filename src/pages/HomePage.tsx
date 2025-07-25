@@ -3,7 +3,6 @@ import Artigos from '../components/Artigos'
 import QuemSomos from '../components/QuemSomos'
 import FormContatoHome from '../components/FormContatoHome'
 import './css/HomePage.css'
-import './../components/css/FormContatoHome.css'
 
 const HomePage = () => {
   return (

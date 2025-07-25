@@ -1,4 +1,5 @@
 import FormContato from '../components/FormContato'
+import './../components/css/FormContatoHome.css'
 
 function FormContatoHome(){
 
