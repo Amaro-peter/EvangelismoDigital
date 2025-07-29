@@ -1,0 +1,22 @@
+.invitation{
+    background-color: var(--secondary2);
+    outline: 10px solid var(--secondary2);
+    padding: 100px 0;
+    width: calc(98vw);
+    margin-left: calc(50% - 49vw);
+    margin-right: calc(50% - 49vw);
+    color: var(--white);
+    font-family: "Arimo", sans-serif;
+    overflow-wrap: break-word;
+}
+.invitation h1{
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-align: center;
+
+}
+.invitation p{
+    font-size: 1.4rem;
+    text-align: center;
+}
+
