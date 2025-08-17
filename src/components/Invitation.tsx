@@ -1,6 +1,8 @@
-import { articles } from '../pages/Articles';
 
-type Chamado = typeof articles[keyof typeof articles]['chamado'];
+interface Chamado {
+  title: string;
+  description: string;
+}
 
 const Invitation=  ({ chamado } :{ chamado: Chamado }) => {
   return (

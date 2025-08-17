@@ -1,8 +1,7 @@
-import React from "react"
 import "./css/CardArtigo.css"
 
 function CardArtigo({
-    imgpath = "#",
+    imgpath = "default-image.jpg",
     title,
     pre
 }:{
@@ -13,7 +12,7 @@ function CardArtigo({
 
     return (<>
         <div>
-            <img src={imgpath}/>
+            <img src={imgpath} className="img-fluid card-artigo-img" alt={title}/>
         </div>
         <div>
             <h2>{title}</h2>

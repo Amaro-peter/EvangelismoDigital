@@ -1,9 +1,7 @@
 import "./css/ArticleMainContent.css";
 import ArticleTitle from "./ArticleTitle";
 import ArticleText from "./ArticleText";
-import { articles } from "../pages/Articles";
-
-type Article = (typeof articles)[number];
+import { Article } from "../interface/Articles";
 
 const ArticleMainContent = ({ article }: { article: Article }) => {
   return (

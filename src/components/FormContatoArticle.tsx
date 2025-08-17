@@ -4,7 +4,7 @@ import './../components/css/FormContatoArticle.css'
 function FormContatoArticle(){
 
     return (<>
-        <h1>Gostaria de entrar em contato conosco?</h1>
+        <h1>Quer saber mais? Entre em contato hoje !</h1>
         <div>
           <div>
                 <img className="contact-image" draggable="false" src="/sent_message_article.png" alt="Contact message"/>
