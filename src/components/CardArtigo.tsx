@@ -1,4 +1,4 @@
-import "./css/CardArtigo.css"
+import "./css/CardArtigo.css";
 
 function CardArtigo({
     imgpath = "default-image.jpg",
@@ -12,7 +12,11 @@ function CardArtigo({
 
     return (<>
         <div>
-            <img src={imgpath} className="img-fluid card-artigo-img" alt={title}/>
+            <img 
+                src={imgpath} 
+                className="img-fluid card-artigo-img" 
+                alt={title}
+            />
         </div>
         <div>
             <h2>{title}</h2>
@@ -21,4 +25,4 @@ function CardArtigo({
     </>)
 }
 
-export default CardArtigo
+export default CardArtigo;

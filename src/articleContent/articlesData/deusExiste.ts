@@ -2,7 +2,7 @@ import { Article } from "../../interface/Articles";
 
 const deusExiste: Article = {
   title: "Deus existe?",
-  imgpath: "deus-existe.jpg",
+  imgpath: "deus-existe.webp",
   text: [
     {
       paragraph:

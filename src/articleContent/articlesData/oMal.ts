@@ -2,7 +2,7 @@ import { Article } from "../../interface/Articles";
 
 const oMal: Article = {
   title: "Se Deus é bom, por que o mal existe?",
-  imgpath: "o-mal.png",
+  imgpath: "o-mal.webp",
   text: [
     {
       paragraph:
