@@ -1,8 +1,9 @@
 import "./css/ArticleTitle.css"
-const ArticleTitle = ({title} : { title : string}) => {
+const ArticleTitle = ({title, image="/default.jpg"} : { title : string, image : string}) => {
     return(<>
-        <div className = "title"> 
-            {title}
+        <div className="article-title">
+             <img src={image}/>
+            <span>{title}</span>
         </div>
     </>)
 }
