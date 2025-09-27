@@ -2,7 +2,8 @@ import { Article } from "../../interface/Articles";
 
 const caminhos: Article = {
   title: "Todos os Caminhos Levam a Deus?",
-  imgpath: "caminhos.webp",
+  imgArticle: "/default-article-image.jpg",
+  imgMainCoverPage: "/caminhos.webp",
   text: [
     {
       subtitle: "Introdução",
