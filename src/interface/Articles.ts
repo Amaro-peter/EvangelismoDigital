@@ -5,7 +5,8 @@ export interface Section {
 
 export interface Article {
   title: string;
-  imgpath?: string;
+  imgArticle: string;
+  imgMainCoverPage?: string;
   text: Section[];
   chamado: {
     title: string;

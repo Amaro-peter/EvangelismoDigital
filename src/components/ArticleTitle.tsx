@@ -1,8 +1,14 @@
 import "./css/ArticleTitle.css"
-const ArticleTitle = ({title, image="/default.jpg"} : { title : string, image : string}) => {
+
+interface ArticleTitleProps {
+    title: string;
+    imgArticle: string;
+}
+
+const ArticleTitle = ({title, imgArticle} : ArticleTitleProps) => {
     return(<>
         <div className="article-title">
-             <img src={image}/>
+            <img src={imgArticle}/>
             <span>{title}</span>
         </div>
     </>)

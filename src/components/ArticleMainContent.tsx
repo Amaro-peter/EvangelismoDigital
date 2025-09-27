@@ -6,7 +6,7 @@ import { Article } from "../interface/Articles";
 const ArticleMainContent = ({ article }: { article: Article }) => {
   return (
     <div className="main-content">
-      <ArticleTitle title={article.title} />
+      <ArticleTitle title={article.title} imgArticle={article.imgArticle} />
       <ArticleText sections={article.text} />
     </div>
   );
