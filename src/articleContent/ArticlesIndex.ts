@@ -7,7 +7,7 @@ export const articlesIndex = [
   },
   {
     id: "caminhos",
-    title: "Todos os Caminhos Levam a Deus?",
+    title: "Todos os Caminhos levam a Deus?",
     imgpath: "caminhos.webp",
     pre: "Nem todos os caminhos levam aonde você pensa..."
   },
