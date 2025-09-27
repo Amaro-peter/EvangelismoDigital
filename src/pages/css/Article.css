@@ -1,7 +1,7 @@
 .invitation{
     background-color: var(--secondary2);
     outline: 10px solid var(--secondary2);
-    padding: 100px 0;
+    padding: 50px 400px;
     width: calc(98vw);
     margin-left: calc(50% - 49vw);
     margin-right: calc(50% - 49vw);
@@ -13,10 +13,17 @@
     font-weight: bold;
     font-size: 2.5rem;
     text-align: center;
-
+    margin-bottom: 15px;
 }
 .invitation p{
     font-size: 1.4rem;
-    text-align: center;
+    text-align: justify;
+    text-indent: 30px;
 }
 
+@media (max-width: 991px) {
+    .invitation{
+        padding: 50px 10px;
+    }
+}
+    

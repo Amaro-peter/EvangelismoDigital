@@ -1,7 +1,7 @@
 const QuemSomos = () => {
   return (
     <div className="container">
-      <h1>QuemSomos</h1>
+      <h1>Quem Somos</h1>
       <p>
         Somos um projeto de evangelismo digital que busca responder, 
         com respeito e clareza, perguntas sobre fé e questões existenciais. 

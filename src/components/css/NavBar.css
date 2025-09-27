@@ -2,7 +2,15 @@
     background-color: #FBD4C9 !important;
     border-radius: 8px !important;
 }
-
+.navbar .nav-item a{
+    padding-left: 30px;
+}
 .navbar {
     border-bottom: 1px solid #F05228;
+}
+
+@media (max-width: 991px) {
+    .navbar .navbar-collapse{
+        margin-top: 15px;
+    }
 }
