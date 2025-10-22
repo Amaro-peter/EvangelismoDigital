@@ -1,8 +1,9 @@
 .formcontato > form{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1px;
     align-items: center;
+     margin-top: -20px;
 }
 
 .formcontato button{
@@ -12,7 +13,7 @@
     color: var(--white);
     width: 300px;
     height: 40px;
-    margin-top: 2.3rem;
+    margin-top: 1.8rem;
 }
 
 .formcontato label{
@@ -36,7 +37,6 @@
     gap: 10px;
     width: 100%;
     font-weight: bold;
-    margin-top: 1rem;
     cursor: pointer;
 }
 
@@ -63,7 +63,7 @@
 .formcontato .checkbox-input:checked::after {
     content: '✓';
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--white);
@@ -73,4 +73,11 @@
 
 .formcontato .checkbox-input:focus {
     outline: 1px solid var(--primary1);
+}
+
+.error-message{
+    color: var(--primary1);
+    margin-top: 5px;
+    width: 100%;
+    text-align: left;
 }
