@@ -23,18 +23,20 @@
 }
 
 @media (max-width: 1199px) {
+
     .form > div:last-child{
         display: flex;
         flex-direction: column;
+        width: 100%;
         max-height: unset;
         padding: 30px;
+        align-items: center;
     }
     .form h1{
         font-size: 2rem;
     }
-    .form > div > span:first-child{
+    .form > div:last-child > :not(:first-child) {
         width: 100%;
-        text-align: center;
     }
     .form > div > div:first-child img{
         max-width: 500px;
