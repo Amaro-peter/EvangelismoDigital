@@ -1,41 +1,116 @@
-
 import "./css/FormContato.css"
-import { useForm } from "react-hook-form";
+import { useForm, Resolver } from "react-hook-form";
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from "react";
+import FormContatoSuccess from "./FormContatoSuccess";
+import useFormSubmission from "../hook/useFormSubmission";
+import { FormSubmissionData } from "../interface/FormSubmissionData";
+
+const DEFAULT_AUTO_DISMISS_SUCCESS_MS = 5000;
 
 const formContatoSchema = z.object({
-  name: z.string().min(1, "Digite um nome válido."),
-  email: z.string().email("Digite um email válido."),
-  acceptJesus: z.boolean().optional(),
+  name: z.preprocess(
+    (val) => (typeof val === 'string' ? val.trim() : val),
+    z.string().nonempty("Digite um nome.").min(2, "Digite um nome válido.")
+  ),
+  lastName: z.preprocess(
+    (val) => (typeof val === 'string' ? val.trim() : val),
+    z.string().nonempty("Digite um sobrenome.").min(2, "Digite um sobrenome válido.")
+  ),
+  email: z.preprocess(
+    (val) => (typeof val === 'string' ? val.trim().toLowerCase() : val),
+    z.string().nonempty("Digite um email.").email("Digite um email válido.")
+  ),
+  decisaoPorCristo: z.boolean().optional(),
 });
 
-function FormContato(){
-type FormContatoData = z.infer<typeof formContatoSchema>;
+export type FormContatoData = z.infer<typeof formContatoSchema>;
 
-    const { register, handleSubmit, formState:{ errors }, } = useForm<FormContatoData>({
-    resolver: zodResolver(formContatoSchema),
+function FormContato(){
+    const [successData, setSuccessData] = useState<FormContatoData | null>(null);
+
+    const { register, handleSubmit, formState:{ errors }, reset } = useForm<FormContatoData>({
+        resolver: zodResolver(formContatoSchema) as Resolver<FormContatoData>,
+        mode: 'onBlur',
+        reValidateMode: 'onChange',
+        defaultValues: { name: '', lastName: '', email: '', decisaoPorCristo: false },
     });
 
-    function handleFormContato(data: FormContatoData){
+    const submission = useFormSubmission();
+
+    async function handleFormContato(data: FormContatoData) {
+        const payload: FormSubmissionData = {
+            name: data.name,
+            lastName: data.lastName,
+            email: data.email,
+            decisaoPorCristo: !!data.decisaoPorCristo,
+            location: '',
+        };
+
+        try {
+            await submission.mutateAsync(payload);
+            reset();
+            setSuccessData(data);
+        } catch (err) {
+            console.error("Error submitting form: ", err);
+        }
     }
 
-    return (<>
-        <div className="formcontato">
-            <form onSubmit={handleSubmit(handleFormContato)} name="form">
-                <label>Nome: <input type="text" {...register('name') }/></label>
-                {<p className="error-message">{errors.name ? errors.name.message : "\u00A0"}</p>}
-                <label>Email: <input type="email" {...register('email')} /></label>
-                {<p className="error-message">{errors.email ? errors.email.message : "\u00A0"}</p>}
-                <label className="checkbox-label">
-                    <input type="checkbox" className="checkbox-input" {...register('acceptJesus')}/>
-                    Tomou uma decisão por Jesus hoje? Clique aqui.
-                </label>
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-
-    </>)
+    return (
+        <>
+            <div className="formcontato">
+                <form onSubmit={handleSubmit(handleFormContato)} name="form" noValidate>
+                    <label>
+                        Nome: <input type="text" {...register('name') }/>
+                    </label>
+                    {
+                        <p className="error-message">
+                            {errors.name ? String(errors.name.message) : "\u00A0"}
+                        </p>
+                    }
+                    <label>
+                        Sobrenome: <input type="text" {...register('lastName') }/>
+                    </label>
+                    {
+                        <p className="error-message">
+                            {errors.lastName ? String(errors.lastName.message) : "\u00A0"}
+                        </p>
+                    }
+                    <label>
+                        Email: <input type="email" {...register('email')} />
+                    </label>
+                    {
+                        <p className="error-message">
+                            {errors.email ? String(errors.email.message) : "\u00A0"}
+                        </p>
+                    }
+                    <label className="checkbox-label">
+                        <input type="checkbox" className="checkbox-input" {...register('decisaoPorCristo')}/>
+                        Tomou uma decisão por Jesus hoje? Clique aqui.
+                    </label>
+                    <button type="submit" disabled={submission.isPending}>
+                        {submission.isPending ? 'Enviando...' : 'Enviar'}
+                    </button>
+                    {submission.isError && (
+                        <>
+                            <h2 className="error-submission-message">
+                                Erro ao enviar formulário. Tente novamente mais tarde.
+                            </h2>
+                        </>
+                    )}
+                </form>
+            </div>
+            
+            {successData && (
+                <FormContatoSuccess 
+                    data={successData}
+                    onClose={() => setSuccessData(null)}
+                    autoDismissMs={DEFAULT_AUTO_DISMISS_SUCCESS_MS}
+                />
+            )}
+        </>
+    )
 }
 
 export default FormContato
