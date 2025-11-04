@@ -1,57 +1,80 @@
-.form{
-    display: flex;
-    flex-direction: column;
-    margin-top: 60px;
+.form {
+    width: 100%;
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 0 20px;
 }
-.form h1{
-    font-size: 3rem;
+
+.form h1 {
+    font-size: clamp(1.75rem, 5vw, 3rem);
     text-align: center;
     font-weight: bold;
     color: var(--secondary1);
-    margin-bottom: 30px;
-}
-.form > div:last-child{
-    border: 2px solid var(--primary2);
-    border-radius: 25px;
-    max-height: 500px;
-}
-.form div img{
-    width: 100% !important;
+    margin-bottom: 40px;
 }
 
+.form > div:last-child {
+    border: 2px solid var(--primary2);
+    border-radius: 25px;
+    overflow: hidden;
+    background: white;
+}
+
+/* Mobile First - até 1199px */
 @media (max-width: 1199px) {
-    .form > div:last-child{
+    .form > div:last-child {
         display: flex;
         flex-direction: column;
-        max-height: unset;
-        padding: 30px;
+        padding: 30px 20px;
+        gap: 20px;
     }
-    .form h1{
-        font-size: 2rem;
-    }
-    .form > div > span:first-child{
+
+    .form > div > div:first-child {
         width: 100%;
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .form > div > div:first-child img{
+
+    .form > div > div:first-child img {
+        max-width: 100%;
+        width: 100%;
         max-width: 500px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .form > div > div:last-child {
+        width: 100%;
     }
 }
+
+/* Desktop - a partir de 1200px */
 @media (min-width: 1200px) {
-    .form > div:last-child{
-        display: block;
+    .form > div:last-child {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        align-items: center;
+        padding: 40px;
+        gap: 40px;
+        min-height: 500px;
     }
-    .form > div > *{
-        position: relative;
+
+    .form > div > div:first-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    .form > div > div:first-child{
-        width: 650px;
-        left: 10px;
-        margin-top: -100px;
+
+    .form > div > div:first-child img {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        object-fit: contain;
     }
-    .form > div > div:last-child{
-        width: 400px;
-        top: -400px;
-        left: 650px;
+
+    .form > div > div:last-child {
+        display: flex;
+        align-items: center;
     }
 }
