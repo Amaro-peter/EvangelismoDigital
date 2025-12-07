@@ -16,10 +16,18 @@ export default defineConfig({
       routes: ['/', ...articleRoutes],
       renderer: '@prerenderer/renderer-puppeteer',
       rendererOptions: {
-        renderAfterTime: 2000,
+        renderAfterTime: 5000,
         maxConcurrentRoutes: 1,
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: [
+          '--no-sandbox', 
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu'
+        ],
+        puppeteerLaunchOptions: {
+          timeout: 60000
+        }
       },
       postProcess(renderedRoute) {
         renderedRoute.html = renderedRoute.html.replace(
