@@ -5,6 +5,7 @@ import ArticleMainContent from "../components/ArticleMainContent";
 import FormContatoArticle from "../components/FormContatoArticle";
 import { useEffect, useState } from 'react';
 import { Article } from '../interface/Articles';
+import SEO from '../components/SEO';
 
 
 
@@ -57,8 +58,19 @@ const ArticlePage = () => {
     );
   }
 
+  const descriptionMeta = article.text[0]?.paragraph ? article.text[0].paragraph.slice(0, 160) + "..." : "Artigo sobre fé e cristianismo.";
+
   return (
     <>
+      <SEO
+        title={article.title}
+        description={descriptionMeta}
+        image={article.imgMainCoverPage || article.imgArticle}
+        url={`/artigo/${artigoId}`}
+        ogType="article"
+        schemaType="Article"
+      />
+
       <div className='container mt-5'>
         <ArticleMainContent article={article}/>
       </div>
