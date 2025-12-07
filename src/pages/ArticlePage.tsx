@@ -23,11 +23,18 @@ const ArticlePage = () => {
     }
 
     const loadArticle = async () => {
-      try {
-        setLoading(true);
-        const articleModule = await import(`../articleContent/articlesData/${artigoId}.ts`);
-        setArticle(articleModule.default);
-        setLoading(false);
+    try {
+      setLoading(true);
+      const articles = import.meta.glob('../articleContent/articlesData/*.ts');
+      const articleLoader = articles[`../articleContent/articlesData/${artigoId}.ts`];
+
+      if (!articleLoader) {
+        throw new Error("Article not found");
+      }
+
+      const articleModule = await articleLoader() as { default: Article };
+      setArticle(articleModule.default);
+      setLoading(false);
       } catch(err) {
         setError(true);
       } finally {
