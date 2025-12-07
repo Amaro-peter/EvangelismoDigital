@@ -16,9 +16,10 @@ export default defineConfig({
       routes: ['/', ...articleRoutes],
       renderer: '@prerenderer/renderer-puppeteer',
       rendererOptions: {
-        renderAfterDocumentEvent: 'custom-render-trigger',
+        renderAfterTime: 2000,
         maxConcurrentRoutes: 1,
-        headless: true
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
       },
       postProcess(renderedRoute) {
         renderedRoute.html = renderedRoute.html.replace(

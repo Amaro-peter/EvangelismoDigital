@@ -25,8 +25,6 @@ const HomePage = ({ section }: HomePageProps) => {
       if(section === 'contato' && contatosRef.current) {
         contatosRef.current.scrollIntoView({ behavior: 'smooth' });
       }
-
-      document.dispatchEvent(new Event('custom-render-trigger'));
     }, 100);
 
       return () => clearTimeout(timer);

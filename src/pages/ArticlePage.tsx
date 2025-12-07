@@ -38,13 +38,6 @@ const ArticlePage = () => {
     loadArticle();
   }, [artigoId]);
 
-  // Trigger prerender event after article loads
-  useEffect(() => {
-    if (!loading && article) {
-      document.dispatchEvent(new Event('custom-render-trigger'));
-    }
-  }, [loading, article]);
-
   if(loading) {
     return (
       <>
