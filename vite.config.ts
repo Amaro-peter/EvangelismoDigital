@@ -19,7 +19,7 @@ export default defineConfig({
       rendererOptions: {
         renderAfterTime: 5000,
         maxConcurrentRoutes: 1,
-        headless: 'new',
+        headless: true,
         executablePath: process.env.VERCEL 
           ? await chromium.executablePath()
           : undefined,
