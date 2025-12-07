@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import prerender from '@prerenderer/rollup-plugin'
+import chromium from '@sparticuz/chromium'
 
 const articleRoutes = [
   '/artigo/deusExiste',
@@ -18,13 +19,18 @@ export default defineConfig({
       rendererOptions: {
         renderAfterTime: 5000,
         maxConcurrentRoutes: 1,
-        headless: true,
-        args: [
-          '--no-sandbox', 
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-gpu'
-        ],
+        headless: 'new',
+        executablePath: process.env.VERCEL 
+          ? await chromium.executablePath()
+          : undefined,
+        args: process.env.VERCEL
+          ? chromium.args
+          : [
+              '--no-sandbox', 
+              '--disable-setuid-sandbox',
+              '--disable-dev-shm-usage',
+              '--disable-gpu'
+            ],
         puppeteerLaunchOptions: {
           timeout: 60000
         }
