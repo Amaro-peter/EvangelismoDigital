@@ -3,6 +3,7 @@ import QuemSomos from '../components/QuemSomos';
 import FormContatoHome from '../components/FormContatoHome';
 import './css/HomePage.css';
 import { useEffect, useRef } from 'react';
+import SEO from '../components/SEO';
 
 type HomePageProps = {
     section?: string;
@@ -31,6 +32,13 @@ const HomePage = ({ section }: HomePageProps) => {
 
   return (
     <>
+      <SEO
+        title="Evangelismo Digital"
+        description="Explore artigos, recursos e ferramentas para compartilhar sua fé online. Junte-se a nós na missão de levar esperança ao mundo digital."
+        ogType="website"
+        schemaType="WebPage"
+      />
+      
       <div ref={artigosRef} className='container mt-5'>
         <Artigos />
       </div>

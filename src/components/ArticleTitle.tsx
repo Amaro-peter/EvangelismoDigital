@@ -8,7 +8,7 @@ interface ArticleTitleProps {
 const ArticleTitle = ({title, imgArticle} : ArticleTitleProps) => {
     return(<>
         <div className="article-title">
-            <img src={imgArticle}/>
+            <img src={imgArticle} alt={title}/>
             <span>{title}</span>
         </div>
     </>)
