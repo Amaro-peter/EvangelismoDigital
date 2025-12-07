@@ -9,7 +9,7 @@ const ArticleTitle = ({title, imgArticle} : ArticleTitleProps) => {
     return(<>
         <div className="article-title">
             <img src={imgArticle} alt={title}/>
-            <span>{title}</span>
+            <h1>{title}</h1>
         </div>
     </>)
 }

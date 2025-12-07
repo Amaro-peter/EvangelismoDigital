@@ -4,6 +4,8 @@ const oMal: Article = {
   title: "Se Deus é bom, por que o mal existe?",
   imgArticle: "/default-article-image.jpg",
   imgMainCoverPage: "/o-mal.webp",
+  imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
+  author: "Evangelismo Digital", 
   text: [
     {
       paragraph:
@@ -33,7 +35,9 @@ const oMal: Article = {
   chamado: {
     title: "Escolha a vida, escolha Jesus!",
     description: "Essa mensagem que tocou seu coração é o Espírito Santo te chamando para perto. A dor e o mal que você vê no mundo têm uma solução, e essa solução é uma pessoa: Jesus Cristo! Ele sofreu na cruz para pagar o preço pelo seu pecado e te dar a vitória sobre toda a injustiça. Chega de lutar sozinho! Hoje é o dia da sua libertação! Abra a sua boca e declare: 'Senhor Jesus, eu me arrependo dos meus pecados e entrego minha vida a Ti. Me lava com Teu sangue e me enche com Teu Espírito. Eu te recebo como meu único e suficiente Salvador!' Se você fez essa oração, o céu está em festa! As coisas velhas passaram, e uma nova vida em Cristo começou para você agora!"
-  }
+  },
+  datePublished: new Date('2025-11-01'),
+  dateModified: new Date('2025-12-06'),
 };
 
 export default oMal;

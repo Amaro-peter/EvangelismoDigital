@@ -4,6 +4,8 @@ const caminhos: Article = {
   title: "Todos os Caminhos Levam a Deus?",
   imgArticle: "/default-article-image.jpg",
   imgMainCoverPage: "/caminhos.webp",
+  imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
+  author: "Evangelismo Digital", 
   text: [
     {
       subtitle: "Introdução",
@@ -29,7 +31,9 @@ const caminhos: Article = {
   chamado: {
     title: "Chega de andar perdido!",
     description: "O mundo oferece dezenas de luzes falsas que te levam para a confusão e o desastre. Mas hoje, o Farol verdadeiro está brilhando para você! Jesus não é uma opção, Ele é a única resposta! Chega de naufragar nas mentiras deste mundo. A decisão é sua, e a hora é agora! Entregue o leme da sua vida a Cristo. Diga a Ele agora mesmo: 'Senhor Jesus, eu estava perdido, mas hoje encontrei o Caminho. Perdoa meus pecados e guia-me para o porto seguro da salvação!'. Ao fazer isso, você não estará mais à deriva. Você encontrou o caminho para Deus."
-  }
+  },
+  datePublished: new Date('2025-11-01'),
+  dateModified: new Date('2025-12-06'),
 };
 
 export default caminhos;

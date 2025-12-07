@@ -7,7 +7,7 @@ interface Chamado {
 const Invitation=  ({ chamado } :{ chamado: Chamado }) => {
   return (
     <div className="container">
-      <h1>{chamado.title}</h1>
+      <h2>{chamado.title}</h2>
       <p>{chamado.description}</p>
     </div>
   );
