@@ -4,6 +4,8 @@ const deusExiste: Article = {
   title: "Deus existe?",
   imgArticle: "/default-article-image.jpg",
   imgMainCoverPage: "/deus-existe.webp",
+  imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
+  author: "Evangelismo Digital", 
   text: [
     {
       paragraph:
@@ -30,6 +32,8 @@ const deusExiste: Article = {
     description:
       "Meu amigo, minha amiga, esses argumentos não são apenas para a mente, mas para o coração. Se você sente um vazio, uma busca por propósito, saiba que isso é o Espírito Santo te chamando para perto. Não é por acaso que você leu até aqui. Jesus está de braços abertos agora mesmo, te convidando para uma nova vida. Ele quer perdoar seus pecados, te dar paz e te encher com a presença Dele. Onde você estiver, feche seus olhos e diga: 'Senhor Jesus, eu me arrependo dos meus pecados. Entra na minha vida, me lava com Teu sangue e escreve meu nome no Livro da Vida. Eu te aceito como meu único e suficiente Salvador.' Se você fez essa oração, sua vida nunca mais será a mesma! Você nasceu de novo!",
   },
+  datePublished: new Date('2025-11-01'),
+  dateModified: new Date('2025-12-06'),
 };
 
 export default deusExiste;

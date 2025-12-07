@@ -25,7 +25,9 @@ const HomePage = ({ section }: HomePageProps) => {
       if(section === 'contato' && contatosRef.current) {
         contatosRef.current.scrollIntoView({ behavior: 'smooth' });
       }
-      }, 100);
+
+      document.dispatchEvent(new Event('custom-render-trigger'));
+    }, 100);
 
       return () => clearTimeout(timer);
   }, [section]);
@@ -37,6 +39,7 @@ const HomePage = ({ section }: HomePageProps) => {
         description="Explore artigos, recursos e ferramentas para compartilhar sua fé online. Junte-se a nós na missão de levar esperança ao mundo digital."
         ogType="website"
         schemaType="WebPage"
+        url="/"
       />
       
       <div ref={artigosRef} className='container mt-5'>

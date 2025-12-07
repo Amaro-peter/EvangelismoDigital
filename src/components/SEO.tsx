@@ -7,6 +7,10 @@ interface SEOProps {
   url?: string;
   ogType?: "website" | "article";
   schemaType?: "WebPage" | "Article";
+  datePublished?: Date;
+  dateModified?: Date;
+  author?: string; 
+  imageAlt?: string;
 }
 
 export default function SEO({
@@ -16,6 +20,10 @@ export default function SEO({
   url,
   ogType = "website",
   schemaType = "WebPage",
+  datePublished,
+  dateModified,
+   author = "Evangelismo Digital",
+  imageAlt,
 }: SEOProps) {
   const siteTitle = "Evangelismo Digital";
   const fullTitle = `${title} | ${siteTitle}`;
@@ -32,6 +40,13 @@ export default function SEO({
   const fullImage = image
     ? `${siteUrl}${normalizePath(image)}`
     : `${siteUrl}${normalizePath(defaultImage)}`;
+  
+  const toISOString = (date?: Date): string | undefined => {
+    return date ? date.toISOString() : undefined;
+  };
+
+  const publishedISO = toISOString(datePublished);
+  const modifiedISO = toISOString(dateModified);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -39,6 +54,12 @@ export default function SEO({
     const createdElements: HTMLElement[] = [];
 
     document.title = fullTitle;
+
+    const htmlElement = document.documentElement;
+    const originalLang = htmlElement.getAttribute('lang');
+    if (!originalLang || originalLang !== 'pt-BR') {
+      htmlElement.setAttribute('lang', 'pt-BR');
+    }
 
     const setMetaTag = (
       attr: string,
@@ -63,6 +84,10 @@ export default function SEO({
     setMetaTag("name", "description", description);
     setMetaTag("name", "robots", "index, follow");
 
+    if (schemaType === "Article") {
+      setMetaTag("name", "author", author);
+    }
+
     // ✅ Open Graph
     setMetaTag("property", "og:type", ogType);
     setMetaTag("property", "og:title", fullTitle);
@@ -70,6 +95,7 @@ export default function SEO({
     setMetaTag("property", "og:image", fullImage);
     setMetaTag("property", "og:url", fullUrl);
     setMetaTag("property", "og:site_name", siteTitle);
+    setMetaTag("property", "og:locale", "pt_BR");
 
     // ✅ Twitter
     setMetaTag("name", "twitter:card", "summary_large_image");
@@ -91,7 +117,7 @@ export default function SEO({
 
     canonical.href = fullUrl;
 
-    // ✅ JSON-LD
+    // ✅ JSON-LD with dates for articles
     const jsonLdId = "jsonld-seo";
     let jsonLdScript = document.getElementById(
       jsonLdId
@@ -105,18 +131,43 @@ export default function SEO({
       createdElements.push(jsonLdScript);
     }
 
-    jsonLdScript.textContent = JSON.stringify({
+    const jsonLdData: any = {
       "@context": "https://schema.org",
       "@type": schemaType,
       headline: fullTitle,
       description,
-      image: fullImage,
+      image: {
+        "@type": "ImageObject",
+        url: fullImage,
+        ...(imageAlt && { caption: imageAlt })
+      },
       url: fullUrl,
+      inLanguage: "pt-BR",
       author: {
         "@type": "Organization",
-        name: siteTitle,
+        name: author,
       },
-    });
+    };
+
+    // ✅ Add dates for articles (Google requires these for Article schema)
+    if (schemaType === "Article" && publishedISO) {
+      jsonLdData.datePublished = publishedISO;
+      jsonLdData.dateModified = modifiedISO || publishedISO;
+      jsonLdData.publisher = {
+        "@type": "Organization",
+        name: siteTitle,
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/logo.png`,
+        },
+      };
+      jsonLdData.mainEntityOfPage = {
+        "@type": "WebPage",
+        "@id": fullUrl,
+      };
+    }
+
+    jsonLdScript.textContent = JSON.stringify(jsonLdData);
 
     // ✅ Full cleanup on route change/unmount (SPA-safe)
     return () => {

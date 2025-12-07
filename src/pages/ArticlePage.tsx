@@ -38,6 +38,13 @@ const ArticlePage = () => {
     loadArticle();
   }, [artigoId]);
 
+  // Trigger prerender event after article loads
+  useEffect(() => {
+    if (!loading && article) {
+      document.dispatchEvent(new Event('custom-render-trigger'));
+    }
+  }, [loading, article]);
+
   if(loading) {
     return (
       <>
@@ -58,7 +65,9 @@ const ArticlePage = () => {
     );
   }
 
-  const descriptionMeta = article.text[0]?.paragraph ? article.text[0].paragraph.slice(0, 160) + "..." : "Artigo sobre fé e cristianismo.";
+  const descriptionMeta = article.text[0]?.paragraph 
+    ? article.text[0].paragraph.slice(0, 155).trim() + (article.text[0].paragraph.length > 155 ? '...' : '')
+    : "Artigo sobre fé, esperança e cristianismo no mundo digital.";
 
   return (
     <>
@@ -69,6 +78,10 @@ const ArticlePage = () => {
         url={`/artigo/${artigoId}`}
         ogType="article"
         schemaType="Article"
+        datePublished={article.datePublished}
+        dateModified={article.dateModified}
+        author={article.author}
+        imageAlt={article.imgAlt || article.title}
       />
 
       <div className='container mt-5'>
@@ -80,7 +93,6 @@ const ArticlePage = () => {
       <div className='container form'>
         <FormContatoArticle/>
       </div>
-
     </>
   );
 };
