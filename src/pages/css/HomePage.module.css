@@ -1,11 +1,11 @@
 .quemSomos{
     background-color: var(--secondary3);
     outline: 10px solid var(--secondary3);
-    padding: 50px 400px;
+    padding: 50px;
     width: calc(98vw);
     margin-left: calc(50% - 49vw);
     margin-right: calc(50% - 49vw);
-    color: var(--white);
+    color: var(--black);
     font-family: "Arimo", sans-serif;
 }
 .quemSomos h1{
@@ -15,8 +15,8 @@
 }
 .quemSomos p{
     font-size: 1.4rem;
-    text-align: justify;
     text-indent: 30px;
+    text-align: center;
 }
 
 @media (max-width: 991px) {

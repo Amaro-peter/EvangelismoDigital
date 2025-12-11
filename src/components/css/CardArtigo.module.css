@@ -11,7 +11,7 @@
     font-family: "Arimo", sans-serif;
 }
 .card:hover{
-    border-color: var(--primary3);
+    border-color: var(--primary2);
     cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
 
 .card p{
     font-size: 16pt;
-    color: var(--secondary2);
+    color: var(--black);
     text-align: center;
 }
 
