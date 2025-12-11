@@ -1,4 +1,4 @@
-import './css/Article.css';
+import styles from './css/Article.module.css';
 import { useParams } from 'react-router-dom';
 import  Invitation from '../components/Invitation';
 import ArticleMainContent from "../components/ArticleMainContent";
@@ -87,7 +87,7 @@ const ArticlePage = () => {
       <div className='container mt-5'>
         <ArticleMainContent article={article}/>
       </div>
-      <div className="mt-5 jumbotron jumbotron-fluid invitation">
+      <div className={`mt-5 jumbotron jumbotron-fluid ${styles.invitation}`}>
         <Invitation chamado={article.chamado}/>
       </div>
       <div className='container form'>

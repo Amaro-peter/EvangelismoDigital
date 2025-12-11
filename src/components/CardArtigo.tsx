@@ -1,4 +1,4 @@
-import "./css/CardArtigo.css";
+import styles from "./css/CardArtigo.module.css";
 
 function CardArtigo({
     imgpath = "default-image.jpg",
@@ -14,11 +14,11 @@ function CardArtigo({
         <div>
             <img 
                 src={imgpath} 
-                className="img-fluid card-artigo-img" 
+                className={`img-fluid ${styles.cardArtigoImg}`}
                 alt={title}
             />
         </div>
-        <div>
+        <div className={styles.cardContent}>
             <h2>{title}</h2>
             <p className="pre">{pre}</p>  
         </div>

@@ -1,4 +1,4 @@
-import "./css/ArticleTitle.css"
+import styles from "./css/ArticleTitle.module.css"
 
 interface ArticleTitleProps {
     title: string;
@@ -7,7 +7,7 @@ interface ArticleTitleProps {
 
 const ArticleTitle = ({title, imgArticle} : ArticleTitleProps) => {
     return(<>
-        <div className="article-title">
+        <div className={styles.articleTitle}>
             <img src={imgArticle} alt={title}/>
             <h1>{title}</h1>
         </div>

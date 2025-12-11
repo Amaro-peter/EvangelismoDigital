@@ -1,7 +1,7 @@
 import Artigos from '../components/Artigos';
 import QuemSomos from '../components/QuemSomos';
 import FormContatoHome from '../components/FormContatoHome';
-import './css/HomePage.css';
+import styles from './css/HomePage.module.css';
 import { useEffect, useRef } from 'react';
 import SEO from '../components/SEO';
 
@@ -43,7 +43,7 @@ const HomePage = ({ section }: HomePageProps) => {
       <div ref={artigosRef} className='container mt-5'>
         <Artigos />
       </div>
-      <div ref={quemSomosRef} className="mt-5 jumbotron jumbotron-fluid quemsomos">
+      <div ref={quemSomosRef} className={`mt-5 jumbotron jumbotron-fluid ${styles.quemSomos}`}>
         <QuemSomos/>
       </div>
       <div ref={contatosRef} className='container form'>

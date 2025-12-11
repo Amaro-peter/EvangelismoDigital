@@ -1,4 +1,4 @@
-.quemsomos{
+.quemSomos{
     background-color: var(--secondary3);
     outline: 10px solid var(--secondary3);
     padding: 50px 400px;
@@ -8,39 +8,25 @@
     color: var(--white);
     font-family: "Arimo", sans-serif;
 }
-.quemsomos h1{
+.quemSomos h1{
     font-weight: bold;
     font-size: 3rem;
     text-align: center;
 }
-.quemsomos p{
+.quemSomos p{
     font-size: 1.4rem;
     text-align: justify;
     text-indent: 30px;
 }
-.title {
-    text-align: center;
-    background-color: var(--primary2);
-    font-size: 3rem;
-    padding: 30px 10px;
-    border-radius: 12px;
-    font-family: "Arimo", sans-serif;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 3vw;
-}
 
 @media (max-width: 991px) {
-    .title {
-        font-size: 2rem;
-    }
-    .quemsomos{
+    .quemSomos{
         padding: 50px 10px;
     }
-    .quemsomos h1{
+    .quemSomos h1{
         font-size: 2rem;
     }
-    .quemsomos p{
+    .quemSomos p{
         font-size: 1.2rem;
     }
 }
