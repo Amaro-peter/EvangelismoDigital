@@ -36,7 +36,7 @@
     outline: 2px solid var(--primary1);
 }
 
-.formcontato .checkbox-label {
+.formcontato .checkboxLabel {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -48,7 +48,7 @@
     margin-top: 10px;
 }
 
-.formcontato .checkbox-input {
+.formcontato .checkboxInput {
     width: 30px;
     height: 30px;
     appearance: none;
@@ -63,12 +63,12 @@
     order: -1;
 }
 
-.formcontato .checkbox-input:checked {
+.formcontato .checkboxInput:checked {
     background-color: var(--primary2);
     outline: 2px solid var(--primary1);
 }
 
-.formcontato .checkbox-input:checked::after {
+.formcontato .checkboxInput:checked::after {
     content: '✓';
     position: absolute;
     top: 50%;
@@ -79,7 +79,7 @@
     font-weight: bold;
 }
 
-.formcontato .checkbox-input:focus {
+.formcontato .checkboxInput:focus {
     outline: 2px solid var(--primary1);
 }
 
@@ -107,7 +107,7 @@
     transform: translateY(0);
 }
 
-.error-message {
+.errorMessage {
     color: var(--primary1);
     font-size: 0.875rem;
     min-height: 20px;
@@ -116,7 +116,7 @@
     text-align: left;
 }
 
-.error-submission-message {
+.errorSubmissionMessage {
     color: var(--primary1);
     font-size: 1rem;
     min-height: 20px;

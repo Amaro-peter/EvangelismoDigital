@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom'
-import './css/NavBar.css';
+import styles from './css/NavBar.module.css';
 
 const NavBar = () => {
   const location = useLocation();
@@ -7,7 +7,7 @@ const NavBar = () => {
   const section = params.get("section");
 
   return (
-    <nav className="navbar navbar-expand-lg fixed-top bg-white">
+    <nav className={`navbar navbar-expand-lg fixed-top bg-white ${styles.navbar}`}>
         <div className="container-fluid">
             <NavLink
                 className="nav-link"
@@ -26,7 +26,7 @@ const NavBar = () => {
                         <NavLink
                             className={
                                 location.pathname === "/" && (section === "artigos" || !section)
-                                    ? "nav-link active-navlink"
+                                    ? `nav-link ${styles['active-navlink']}`
                                     : "nav-link"
                             }
                             aria-current="page"
@@ -39,7 +39,7 @@ const NavBar = () => {
                         <NavLink
                             className={
                                 location.pathname === "/" && section === "quem-somos"
-                                    ? "nav-link active-navlink"
+                                    ? `nav-link ${styles['active-navlink']}`
                                     : "nav-link"
                             }
                             to="/?section=quem-somos"
@@ -51,7 +51,7 @@ const NavBar = () => {
                         <NavLink
                             className={
                                 location.pathname === "/" && section === "contato"
-                                    ? "nav-link active-navlink"
+                                    ? `nav-link ${styles['active-navlink']}`
                                     : "nav-link"
                             }
                             to="/?section=contato"

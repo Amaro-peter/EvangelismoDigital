@@ -1,4 +1,4 @@
-.fc-success-overlay{
+.fcSuccessOverlay {
     position: fixed;
     inset: 0;
     display: flex;
@@ -18,7 +18,7 @@
     to { opacity: 1; }
 }
 
-.fc-success-card{
+.fcSuccessCard {
     width: 100%;
     max-width: 420px;
     background: var(--surface, #fff);
@@ -38,7 +38,7 @@
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.fc-success-icon {
+.fcSuccessIcon {
     width: 64px;
     height: 64px;
     border-radius: 999px;
@@ -48,22 +48,22 @@
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
-.fc-success-icon svg { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); }
+.fcSuccessIcon svg { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12)); }
 
-.fc-success-title {
+.fcSuccessTitle {
     margin: 0;
     color: var(--primary1);
     font-size: 1.125rem;
     font-weight: 700;
 }
 
-.fc-success-text {
+.fcSuccessText {
     margin: 0;
     color: var(--text, #333);
     font-size: 0.95rem;
 }
 
-.fc-success-meta {
+.fcSuccessMeta {
     width: 100%;
     background: rgba(0,0,0,0.02);
     padding: 10px 12px;
@@ -73,15 +73,15 @@
     text-align: left;
 }
 
-.fc-success-meta div { margin-bottom: 6px; }
+.fcSuccessMeta div { margin-bottom: 6px; }
 
-.fc-success-actions {
+.fcSuccessActions {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.fc-btn-close {
+.fcBtnClose {
     background: var(--primary2);
     color: var(--white);
     border: none;
@@ -91,4 +91,8 @@
     font-weight: 600;
     transition: transform 0.12s, box-shadow 0.12s;
 }
-.fc-btn-close:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+
+.fcBtnClose:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12); 
+}

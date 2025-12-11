@@ -1,17 +1,19 @@
 import FormContato from './FormContato'
-import './../components/css/FormContatoArticle.css'
+import styles from './css/FormContatoArticle.module.css'
 
 function FormContatoArticle(){
 
-    return (<>
-        <h1>Quer saber mais? Entre em contato hoje !</h1>
-        <div>
-          <div>
-                <img className="contact-image" draggable="false" src="/sent_message_article.png" alt="Contact message"/>
-          </div>
-          <FormContato/>
-        </div>
-    </>)
+    return (
+        <section className={styles.form}>
+            <h1>Quer saber mais? Entre em contato hoje!</h1>
+            <div>
+                <div>
+                    <img draggable="false" src="/sent_message_article.png" alt="Contact message"/>
+                </div>
+                <FormContato/>
+            </div>
+        </section>
+    )
 }
 
 export default FormContatoArticle

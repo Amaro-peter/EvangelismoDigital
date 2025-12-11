@@ -1,4 +1,4 @@
-import "./css/FormContato.css"
+import styles from "./css/FormContato.module.css"
 import { useForm, Resolver } from "react-hook-form";
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -6,6 +6,7 @@ import { useState } from "react";
 import FormContatoSuccess from "./FormContatoSuccess";
 import useFormSubmission from "../hook/useFormSubmission";
 import { FormSubmissionData } from "../interface/FormSubmissionData";
+import FormContatoError from "./FormContatoError";
 
 const DEFAULT_AUTO_DISMISS_SUCCESS_MS = 5000;
 
@@ -29,6 +30,7 @@ export type FormContatoData = z.infer<typeof formContatoSchema>;
 
 function FormContato(){
     const [successData, setSuccessData] = useState<FormContatoData | null>(null);
+    const [showError, setShowError] = useState(false);
 
     const { register, handleSubmit, formState:{ errors }, reset } = useForm<FormContatoData>({
         resolver: zodResolver(formContatoSchema) as Resolver<FormContatoData>,
@@ -52,20 +54,22 @@ function FormContato(){
             await submission.mutateAsync(payload);
             reset();
             setSuccessData(data);
+            setShowError(false);
         } catch (err) {
             console.error("Error submitting form: ", err);
+            setShowError(true);
         }
     }
 
     return (
         <>
-            <div className="formcontato">
+            <div className={styles.formcontato}>
                 <form onSubmit={handleSubmit(handleFormContato)} name="form" noValidate>
                     <label>
                         Nome: <input type="text" {...register('name') }/>
                     </label>
                     {
-                        <p className="error-message">
+                        <p className={styles.errorMessage}>
                             {errors.name ? String(errors.name.message) : "\u00A0"}
                         </p>
                     }
@@ -73,7 +77,7 @@ function FormContato(){
                         Sobrenome: <input type="text" {...register('lastName') }/>
                     </label>
                     {
-                        <p className="error-message">
+                        <p className={styles.errorMessage}>
                             {errors.lastName ? String(errors.lastName.message) : "\u00A0"}
                         </p>
                     }
@@ -81,24 +85,17 @@ function FormContato(){
                         Email: <input type="email" {...register('email')} />
                     </label>
                     {
-                        <p className="error-message">
+                        <p className={styles.errorMessage}>
                             {errors.email ? String(errors.email.message) : "\u00A0"}
                         </p>
                     }
-                    <label className="checkbox-label">
-                        <input type="checkbox" className="checkbox-input" {...register('decisaoPorCristo')}/>
+                    <label className={styles.checkboxLabel}>
+                        <input type="checkbox" className={styles.checkboxInput} {...register('decisaoPorCristo')}/>
                         Tomou uma decisão por Jesus hoje? Clique aqui.
                     </label>
                     <button type="submit" disabled={submission.isPending}>
                         {submission.isPending ? 'Enviando...' : 'Enviar'}
                     </button>
-                    {submission.isError && (
-                        <>
-                            <h2 className="error-submission-message">
-                                Erro ao enviar formulário. Tente novamente mais tarde.
-                            </h2>
-                        </>
-                    )}
                 </form>
             </div>
             
@@ -109,10 +106,15 @@ function FormContato(){
                     autoDismissMs={DEFAULT_AUTO_DISMISS_SUCCESS_MS}
                 />
             )}
+
+            {showError && (
+                <FormContatoError 
+                    onClose={() => setShowError(false)}
+                />
+            )}
         </>
     )
 }
 
-export default FormContato
-
+export default FormContato;
 

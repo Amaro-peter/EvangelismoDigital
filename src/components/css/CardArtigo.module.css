@@ -1,5 +1,6 @@
 .card{
     border: 2px solid var(--secondary3);
+    border-radius: 6px;
     min-height: 350px;
     width: 30%;
     margin: 10px 0px;
@@ -10,26 +11,29 @@
     font-family: "Arimo", sans-serif;
 }
 .card:hover{
-    border-color: var(--primary3);
+    border-color: var(--primary2);
     cursor: pointer;
-    /* background-color: var(--primary4); */
 }
 
 .card h2{
     font-size: 24pt;
     margin-top: 16px;
-}
-.card p{
-    font-size: 16pt;
-    color: var(--secondary2);
-}
-.card > div:not(.card-artigo-img){
-    height: 100%;
+    text-align: center;
 }
 
-.card-artigo-img {
+.card p{
+    font-size: 16pt;
+    color: var(--black);
+    text-align: center;
+}
+
+.cardArtigoImg {
     border-radius: 16px;
     box-shadow: 0 6px 24px rgba(0,0,0,0.18), 0 1.5px 4px rgba(0,0,0,0.12);
+}
+
+.cardContent {
+    height: 100%;
 }
 
 @media (max-width: 1199px) {
@@ -38,18 +42,3 @@
         margin: 10px 0;
     }
 }
-@media (min-width: 1200px) {
-    /* .card:hover{
-        animation: grow 0.3s both;
-    } */
-}
-
-/* @keyframes grow {
-    from {
-        width: 25%;
-    }
-    to{
-
-        width: 26%;
-    }
-} */

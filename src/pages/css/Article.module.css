@@ -1,11 +1,11 @@
 .invitation{
-    background-color: var(--secondary2);
-    outline: 10px solid var(--secondary2);
-    padding: 50px 400px;
+    background-color: var(--secondary3);
+    outline: 10px solid var(--secondary3);
+    padding: 50px;
     width: calc(98vw);
     margin-left: calc(50% - 49vw);
     margin-right: calc(50% - 49vw);
-    color: var(--white);
+    color: var(--black);
     font-family: "Arimo", sans-serif;
     overflow-wrap: break-word;
 }
