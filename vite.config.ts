@@ -2,12 +2,17 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import prerender from '@prerenderer/rollup-plugin'
 import chromium from '@sparticuz/chromium'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
-const articleRoutes = [
-  '/artigo/deusExiste',
-  '/artigo/caminhos',
-  '/artigo/oMal'
-]
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// Automatically discover article routes
+const articlesDir = path.resolve(__dirname, './src/articleContent/articlesData')
+const articleFiles = fs.readdirSync(articlesDir).filter(f => f.endsWith('.ts'))
+const articleRoutes = articleFiles.map(file => `/artigo/${file.replace('.ts', '')}`)
 
 // https://vite.dev/config/
 export default defineConfig({
