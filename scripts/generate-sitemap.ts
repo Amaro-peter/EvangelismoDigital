@@ -44,8 +44,8 @@ async function generateSitemap() {
           priority: 0.8,
         });
       }
-    } catch (error: any) {
-      console.error(`❌ Error loading ${articleId}:`, error.message);
+    } catch (error: unknown) {
+      console.error(`❌ Error loading ${articleId}:`, (error as Error).message);
     }
   }
 
