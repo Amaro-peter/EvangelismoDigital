@@ -2,7 +2,7 @@ import { Article } from "../../interface/Articles";
 
 const oMal: Article = {
   title: "Se Deus é bom, por que o mal existe?",
-  imgArticle: "/default-article-image.jpg",
+  imgArticle: "/default-article-image.webp",
   imgMainCoverPage: "/o-mal.webp",
   imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
   author: "Evangelismo Digital", 

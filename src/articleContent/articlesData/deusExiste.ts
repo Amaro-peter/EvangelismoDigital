@@ -2,7 +2,7 @@ import { Article } from "../../interface/Articles";
 
 const deusExiste: Article = {
   title: "Deus existe?",
-  imgArticle: "/default-article-image.jpg",
+  imgArticle: "/default-article-image.webp",
   imgMainCoverPage: "/deus-existe.webp",
   imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
   author: "Evangelismo Digital", 
