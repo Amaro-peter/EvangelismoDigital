@@ -8,7 +8,7 @@ function FormContatoArticle(){
             <h1>Quer saber mais? Entre em contato hoje!</h1>
             <div>
                 <div>
-                    <img draggable="false" src="/sent_message_article.png" alt="Contact message"/>
+                    <img draggable="false" src="/sent_message_article.webp" alt="Contact message"/>
                 </div>
                 <FormContato/>
             </div>

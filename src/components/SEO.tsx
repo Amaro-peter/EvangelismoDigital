@@ -27,7 +27,7 @@ export default function SEO({
 }: SEOProps) {
   const siteTitle = "Evangelismo Digital";
   const fullTitle = `${title} | ${siteTitle}`;
-  const defaultImage = "/default-article-image.jpg";
+  const defaultImage = "/default-article-image.webp";
   const siteUrl = "https://www.findhope.digital";
 
   const normalizePath = (path: string) =>

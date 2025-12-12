@@ -2,7 +2,7 @@ import { Article } from "../../interface/Articles";
 
 const caminhos: Article = {
   title: "Todos os Caminhos Levam a Deus?",
-  imgArticle: "/default-article-image.jpg",
+  imgArticle: "/default-article-image.webp",
   imgMainCoverPage: "/caminhos.webp",
   imgAlt: "Imagem de uma mulher segurando a bíblia com as mãos",
   author: "Evangelismo Digital", 

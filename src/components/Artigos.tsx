@@ -20,7 +20,7 @@ const Artigos = () => {
             onClick={() => navigate(`/artigo/${artigo.id}`)}
           >
             <CardArtigo
-              imgpath={artigo.imgpath || "default-image.jpg"}
+              imgpath={artigo.imgpath || "default-image.webp"}
               title={artigo.title}
               pre={artigo.pre || ""}
             />

@@ -1,7 +1,7 @@
 import styles from "./css/CardArtigo.module.css";
 
 function CardArtigo({
-    imgpath = "default-image.jpg",
+    imgpath = "default-image.webp",
     title,
     pre
 }:{

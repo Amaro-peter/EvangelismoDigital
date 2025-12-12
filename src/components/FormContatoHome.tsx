@@ -8,7 +8,7 @@ function FormContatoHome(){
             <h1>Gostaria de entrar em contato conosco?</h1>
             <div>
                 <div>
-                    <img draggable="false" src="sent_message.png" alt="Contact message"/>
+                    <img draggable="false" src="sent_message.webp" alt="Contact message"/>
                 </div>
                 <FormContato/>
             </div>
