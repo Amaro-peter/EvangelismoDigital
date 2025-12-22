@@ -4,7 +4,7 @@ import FormContatoHome from '../components/FormContatoHome';
 import styles from './css/HomePage.module.css';
 import { useEffect, useRef } from 'react';
 import SEO from '../components/SEO';
-import { quemSomosText } from '../templates/QuemSomosText';
+import { seoPresentationText } from '../templates/SEOPresentationText';
 
 type HomePageProps = {
     section?: string;
@@ -35,8 +35,8 @@ const HomePage = ({ section }: HomePageProps) => {
     <>
 
       <SEO
-        title="Evangelismo Digital"
-        description= {quemSomosText.trim()}
+        title="Razão & Fé"
+        description= {seoPresentationText.trim()}
         image='/seo-social-media-cover-img.webp'
         ogType="website"
         schemaType="WebPage"
