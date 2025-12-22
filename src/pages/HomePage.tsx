@@ -4,6 +4,7 @@ import FormContatoHome from '../components/FormContatoHome';
 import styles from './css/HomePage.module.css';
 import { useEffect, useRef } from 'react';
 import SEO from '../components/SEO';
+import { quemSomosText } from '../templates/QuemSomosText';
 
 type HomePageProps = {
     section?: string;
@@ -32,12 +33,15 @@ const HomePage = ({ section }: HomePageProps) => {
 
   return (
     <>
+
       <SEO
         title="Evangelismo Digital"
-        description="Explore artigos, recursos e ferramentas para compartilhar sua fé online. Junte-se a nós na missão de levar esperança ao mundo digital."
+        description= {quemSomosText.trim()}
+        image='/seo-social-media-cover-img.webp'
         ogType="website"
         schemaType="WebPage"
         url="/"
+        imageAlt="Evangelismo Digital - Compartilhando a mensagem de esperança pela internet"
       />
       
       <div ref={artigosRef} className='container mt-5'>
