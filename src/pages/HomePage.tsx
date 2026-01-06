@@ -5,6 +5,7 @@ import styles from './css/HomePage.module.css';
 import { useEffect, useRef } from 'react';
 import SEO from '../components/SEO';
 import { seoPresentationText } from '../templates/SEOPresentationText';
+import FindNearestChurch from '../components/FindNearestChurch';
 
 type HomePageProps = {
     section?: string;
@@ -53,7 +54,9 @@ const HomePage = ({ section }: HomePageProps) => {
       <div ref={contatosRef} className='container form'>
         <FormContatoHome/>
       </div>
-    
+      <div className='container mt-5'>
+        <FindNearestChurch />
+      </div>
     </>
   );
 };

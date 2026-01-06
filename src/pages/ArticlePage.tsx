@@ -6,6 +6,7 @@ import FormContatoArticle from "../components/FormContatoArticle";
 import { useEffect, useState } from 'react';
 import { Article } from '../interface/Articles';
 import SEO from '../components/SEO';
+import FindNearestChurch from '../components/FindNearestChurch';
 
 
 
@@ -92,6 +93,9 @@ const ArticlePage = () => {
       </div>
       <div className='container form'>
         <FormContatoArticle/>
+      </div>
+      <div className='container mt-5'>
+        <FindNearestChurch />
       </div>
     </>
   );
