@@ -1,0 +1,20 @@
+/* src/components/css/CallToAction.module.css */
+.container {
+  background-color: #fff7ed; /* Orange-50 */
+  border-left: 4px solid #f97316; /* Orange-500 */
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #c2410c; /* Orange-700 */
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  color: black;
+}

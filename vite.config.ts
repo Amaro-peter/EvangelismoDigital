@@ -5,18 +5,26 @@ import chromium from '@sparticuz/chromium'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import mdx from '@mdx-js/rollup'
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 // Automatically discover article routes
 const articlesDir = path.resolve(__dirname, './src/articleContent/articlesData')
-const articleFiles = fs.readdirSync(articlesDir).filter(f => f.endsWith('.ts'))
-const articleRoutes = articleFiles.map(file => `/artigo/${file.replace('.ts', '')}`)
+const articleFiles = fs.readdirSync(articlesDir).filter(f => f.endsWith('.mdx'))
+const articleRoutes = articleFiles.map(file => `/artigo/${file.replace('.mdx', '')}`)
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    { enforce: 'pre', ...mdx({ 
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter],
+      providerImportSource: '@mdx-js/react'
+      }) 
+    },
     react(),
     prerender({
       routes: ['/', ...articleRoutes],

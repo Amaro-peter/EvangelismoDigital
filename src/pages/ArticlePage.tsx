@@ -1,18 +1,23 @@
 import styles from './css/Article.module.css';
 import { useParams } from 'react-router-dom';
-import  Invitation from '../components/Invitation';
-import ArticleMainContent from "../components/ArticleMainContent";
 import FormContatoArticle from "../components/FormContatoArticle";
 import { useEffect, useState } from 'react';
-import { Article } from '../interface/Articles';
 import SEO from '../components/SEO';
 import FindNearestChurch from '../components/FindNearestChurch';
+import { MDXProvider } from '@mdx-js/react';
+import CallToAction from '../components/CallToAction';
+import { getCallToActionContent } from '../config/callToActionContent';
 
-
+const mdxComponents = {
+  // You can add more custom components here if needed
+}
 
 const ArticlePage = () => {
   const { artigoId } = useParams<{ artigoId: string }>();
-  const [article, setArticle] = useState<Article | null>(null);
+
+  const [ArticleComponent, setArticleComponent] = useState<any>(null)
+  const [frontmatter, setFrontmatter] = useState<any>(null)
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -26,15 +31,17 @@ const ArticlePage = () => {
     const loadArticle = async () => {
     try {
       setLoading(true);
-      const articles = import.meta.glob('../articleContent/articlesData/*.ts');
-      const articleLoader = articles[`../articleContent/articlesData/${artigoId}.ts`];
+      const articles = import.meta.glob('../articleContent/articlesData/*.mdx');
+      const articleLoader = articles[`../articleContent/articlesData/${artigoId}.mdx`];
 
       if (!articleLoader) {
         throw new Error("Article not found");
       }
 
-      const articleModule = await articleLoader() as { default: Article };
-      setArticle(articleModule.default);
+      const module: any = await articleLoader()
+
+      setArticleComponent(() => module.default)
+      setFrontmatter(module.frontmatter)
       setLoading(false);
       } catch(err) {
         setError(true);
@@ -57,7 +64,7 @@ const ArticlePage = () => {
     );
   }
 
-  if(error || !article) {
+  if(error || !ArticleComponent) {
     return (
       <div className="container mt-5">
         <h1>Página não encontrada</h1>
@@ -66,34 +73,53 @@ const ArticlePage = () => {
     );
   }
 
-  const descriptionMeta = article.text[0]?.paragraph 
-    ? article.text[0].paragraph.slice(0, 155).trim() + (article.text[0].paragraph.length > 155 ? '...' : '')
-    : "Artigo sobre fé, esperança e cristianismo no mundo digital.";
+  const callToActionData = getCallToActionContent(artigoId)
 
   return (
     <>
       <SEO
-        title={article.title}
-        description={descriptionMeta}
-        image={article.imgMainCoverPage || article.imgArticle}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        image={frontmatter.imgMainCoverPage || frontmatter.imgArticle}
         url={`/artigo/${artigoId}`}
         ogType="article"
         schemaType="Article"
-        datePublished={article.datePublished}
-        dateModified={article.dateModified}
-        author={article.author}
-        imageAlt={article.imgAlt || article.title}
+        datePublished={frontmatter.datePublished ? new Date(frontmatter.datePublished) : undefined}
+        dateModified={frontmatter.dateModified ? new Date(frontmatter.dateModified) : undefined}
+        author={frontmatter.author}
+        imageAlt={frontmatter.imgAlt || frontmatter.title}
       />
 
+      <MDXProvider components={mdxComponents}>
+        <div className='container mt-5'>
+          <article className={styles.articleBody}>
+            
+            <h1 className="mb-4">
+              {frontmatter.title}
+            </h1>
+
+            <img 
+              src={frontmatter.imgArticle}
+              alt={frontmatter.imgAlt || frontmatter.title}
+              className="img-fluid mb-4 rounded w-100"
+              style={{ maxHeight: '500px', objectFit: 'cover' }}
+            />
+
+            <ArticleComponent />
+          </article>
+        </div>
+      </MDXProvider>
+
       <div className='container mt-5'>
-        <ArticleMainContent article={article}/>
+        <CallToAction title={callToActionData.title}>
+          {callToActionData.content}
+        </CallToAction>
       </div>
-      <div className={`mt-5 jumbotron jumbotron-fluid ${styles.invitation}`}>
-        <Invitation chamado={article.chamado}/>
-      </div>
+
       <div className='container form'>
         <FormContatoArticle/>
       </div>
+
       <div className='container mt-5'>
         <FindNearestChurch />
       </div>
