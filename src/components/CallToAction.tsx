@@ -8,12 +8,16 @@ interface CallToActionProps {
 
 const CallToAction = ({ title, children }: CallToActionProps) => {
     return (
-        <div className={styles.container}>
-            <h3 className={styles.title}>
-                {title}
-            </h3>
-            <div className={styles.content}>
-                {children}
+        /* O Wrapper cuida do fundo infinito (full width) */
+        <div className={styles.wrapper}>
+            {/* O Container cuida do alinhamento do texto */ }
+            <div className={styles.container}>
+                <h3 className={styles.title}>
+                    {title}
+                </h3>
+                <div className={styles.content}>
+                    {children}
+                </div>
             </div>
         </div>
     )

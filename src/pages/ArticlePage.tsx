@@ -1,4 +1,4 @@
-import styles from './css/Article.module.css';
+import styles from './css/ArticlePage.module.css'
 import { useParams } from 'react-router-dom';
 import FormContatoArticle from "../components/FormContatoArticle";
 import { useEffect, useState } from 'react';
@@ -92,7 +92,7 @@ const ArticlePage = () => {
 
       <MDXProvider components={mdxComponents}>
         <div className='container mt-5'>
-          <article className={styles.articleBody}>
+          <article className={styles.articleSection}>
             
             <h1 className="mb-4">
               {frontmatter.title}

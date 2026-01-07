@@ -1,3 +1,7 @@
+body {
+    overflow-x: hidden;
+}
+
 *{
     --white: #ffffff;
     --black: #000000;

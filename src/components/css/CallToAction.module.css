@@ -1,20 +1,69 @@
 /* src/components/css/CallToAction.module.css */
-.container {
+
+.wrapper {
+  /* Cores */
   background-color: #fff7ed; /* Orange-50 */
-  border-left: 4px solid #f97316; /* Orange-500 */
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border: 4px solid #f97316; /* Orange-500 */
+  
+  /* Layout: Breakout (Quebra o container pai para ocupar a tela toda) */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  
+  /* Espaçamento Vertical */
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
+  /* Garante que o box model não cause bugs de tamanho */
+  box-sizing: border-box; 
+}
+
+/* Novo container interno para manter o texto alinhado e legível */
+.container {
+  max-width: 1200px; /* Ou a largura padrão do seu site */
+  margin: 0 auto;    /* Centraliza o conteúdo */
+  padding: 0 10px;   /* Margem de segurança para mobile */
+  
+  /* Typography */
+  font-family: "Arimo", sans-serif;
+  overflow-wrap: break-word;
 }
 
 .title {
-  font-size: 1.25rem;
-  font-weight: 700;
   color: #c2410c; /* Orange-700 */
-  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .content {
   color: black;
+  font-size: 1.4rem;
+  text-align: justify;
+  line-height: 1.8; /* Aumentei levemente para melhor leitura */
+  font-weight: bold;
+  /* Limita a largura do texto para não cansar a vista em telas wide */
+  max-width: 900px; 
+  margin: 0 auto; /* Centraliza o bloco de texto */
+}
+
+@media (max-width: 991px) {
+  .wrapper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .content {
+    font-size: 1.3rem;
+  }
 }
