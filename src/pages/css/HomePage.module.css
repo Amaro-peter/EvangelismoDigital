@@ -1,6 +1,6 @@
 .quemSomos{
-    background-color: var(--secondary3);
-    outline: 10px solid var(--secondary3);
+    background-color: var(--primary5);
+    outline: 10px solid var(--primary5);
     padding: 50px;
     width: calc(98vw);
     margin-left: calc(50% - 49vw);

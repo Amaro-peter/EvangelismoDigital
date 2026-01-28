@@ -94,16 +94,19 @@ const ArticlePage = () => {
         <div className='container mt-5'>
           <article className={styles.articleSection}>
             
-            <h1 className="mb-4">
-              {frontmatter.title}
-            </h1>
+            <div className={styles['article-header']}>
+              
+                <h1 className="mb-4">
+                  {frontmatter.title}
+                </h1>
 
-            <img 
-              src={frontmatter.imgArticle}
-              alt={frontmatter.imgAlt || frontmatter.title}
-              className="img-fluid mb-4 rounded w-100"
-              style={{ maxHeight: '500px', objectFit: 'cover' }}
-            />
+                <img 
+                  src={frontmatter.imgArticle}
+                  alt={frontmatter.imgAlt || frontmatter.title}
+                  className="img-fluid mb-5 rounded-4 w-100"
+                />
+
+            </div>
 
             <ArticleComponent />
           </article>
@@ -116,13 +119,9 @@ const ArticlePage = () => {
         </CallToAction>
       </div>
 
-      <div className='container form'>
-        <FormContatoArticle/>
-      </div>
+      <FormContatoArticle/>
 
-      <div className='container mt-5'>
-        <FindNearestChurch />
-      </div>
+      <FindNearestChurch />
     </>
   );
 };

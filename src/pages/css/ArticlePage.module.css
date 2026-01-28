@@ -1,9 +1,55 @@
-/* Base styles for desktop */
+.article-header{
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-header img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+    filter: brightness(0.7) saturate(0.98);
+}
+
+.article-header h1{
+    margin: 0 !important;
+    position: absolute;
+    bottom: 4rem;
+    left: 2rem;
+    color: white;
+    z-index: 2;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
 .articleSection p {
     font-size: 1.3rem;
-    line-height: 1.6;
-    font-weight: 450;
+    text-indent: 30px;
+    margin-bottom: 10px;
     color: var(--black);
+}
+
+.articleSection blockquote {
+    font-style: italic;
+    font-size: 1.15rem;
+    background: var(--secundary5); 
+    border-left: 4px solid var(--primary1);
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    color: var(--black2);
+    border-radius: 6px;
+}
+
+.articleSection blockquote p {
+    margin: 0;
+    text-align: left;
+}
+
+.articleSection strong {
+    color: var(--black2);
+    background-color: var(--primary5);
+    text-decoration: underline;
 }
 
 .articleSection h2 {
@@ -17,48 +63,17 @@
     line-height: 1.6;
 }
 
-/* Tablet styles (768px - 1024px) */
-@media (max-width: 1024px) and (min-width: 768px) {
-    .articleSection p {
-        font-size: 1.25rem;
-        line-height: 1.3;
-    }
-    
-    .articleSection h2 {
-        font-size: 2rem;
-    }
-    
-    .articleSection ul, .articleSection ol {
-        font-size: 1.25rem;
-    }
-}
 
-/* Smartphone styles (up to 767px) */
-@media (max-width: 767px) and (min-width: 290px) {
-    .articleSection p {
-        font-size: 1.3rem;
-        line-height: 1.7;
-    }
-    
-    .articleSection h2 {
-        font-size: 1.85rem;
-    }
-    
-    .articleSection ul, .articleSection ol {
-        font-size: 1.3rem;
-    }
-}
 
-@media (max-width: 289px) {
-    .articleSection p {
+@media (max-width: 1024px) {
+    .article-header img{
+        max-height: 200px;
+    }
+    .articleSection p{
+        text-align: justify;
         font-size: 1.2rem;
-        line-height: 1.8;
+        text-indent: 10px;
     }
-    
-    .articleSection h2 {
-        font-size: 1.85rem;
-    }
-    
     .articleSection ul, .articleSection ol {
         font-size: 1.2rem;
     }

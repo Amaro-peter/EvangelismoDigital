@@ -4,13 +4,16 @@ body {
 
 *{
     --white: #ffffff;
-    --black: #000000;
+    --black: #141414;
+    --black2: #272727;
     --primary1: #f05128;
     --primary2: #f37c5d;
     --primary3: #f7a893;
     --primary4: #fbd4c9;
+    --primary5: #ffefea;
     --secondary1: #5b5b5b;
     --secondary2: #848484;
     --secondary3: #adadad;
     --secondary4: #d6d6d6;
+    --secundary5: #f5f5f6;
 }

@@ -12,9 +12,9 @@ const CallToAction = ({ title, children }: CallToActionProps) => {
         <div className={styles.wrapper}>
             {/* O Container cuida do alinhamento do texto */ }
             <div className={styles.container}>
-                <h3 className={styles.title}>
+                <h1 className={styles.title}>
                     {title}
-                </h3>
+                </h1>
                 <div className={styles.content}>
                     {children}
                 </div>
