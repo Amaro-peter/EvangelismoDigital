@@ -29,3 +29,18 @@
         font-size: 2rem;
     }
 }
+
+.subtitle{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.paginationContainer{
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 48px;
+}
+
+.pagination .page-item .page-link{
+    cursor: pointer;
+}
