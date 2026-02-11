@@ -1,0 +1,66 @@
+/* Card-like layout for the Quem Somos section */
+.card {
+  background: linear-gradient(180deg, #ffffff, #fbfbfb);
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 1100px;
+  margin: 18px auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.cardContent{
+  flex: 1 1 60%;
+}
+
+.title{
+  font-size: 28px;
+  margin: 0 0 12px 0;
+  color: var(--black);
+  font-weight: 700;
+}
+
+.text{
+  color: #333333;
+  line-height: 1.75;
+  font-size: 16px;
+  margin: 0 0 12px 0;
+  text-align: justify;
+}
+
+.side{
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImg{
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.cta{
+  width: 100%;
+}
+
+@media (max-width: 768px){
+  .card{
+    flex-direction: column;
+    padding: 20px;
+  }
+  .side{
+    width: 100%;
+    order: 2;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .logoImg{ height: 140px; width: auto; }
+}

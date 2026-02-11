@@ -29,3 +29,49 @@
         font-size: 2rem;
     }
 }
+
+.subtitle{
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.paginationContainer{
+    display: flex;
+    justify-content: center;
+    margin: 24px 0 48px;
+}
+
+.pagination .page-item .page-link{
+    cursor: pointer;
+}
+
+:global(.pagination) {
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem var(--primary1_20);
+  margin-top: 1rem;
+}
+
+/* Links da paginação com a cor principal */
+:global(.pagination .page-link) {
+  color: var(--primary1);
+  background: var(--primary5);
+  border-color: transparent;
+}
+
+/* Hover */
+:global(.pagination .page-link:hover) {
+  color: var(--primary1);
+  background-color: var(--primary4);
+  border-color: var(--primary3);
+}
+
+:global(.pagination .page-item.active .page-link) {
+  color: #fff;
+  background-color: var(--primary1);
+  border-color: var(--primary1);
+}
+
+:global(.pagination .page-item.disabled .page-link) {
+  color: rgba(0, 0, 0, 0.3);
+  background: var(--primary5);
+  border-color: transparent;
+}

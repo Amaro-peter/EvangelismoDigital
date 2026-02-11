@@ -4,7 +4,6 @@
     width: 100%;
     max-width: 1400px;
     margin: 60px auto 0;
-    padding: 0 20px;
 }
 
 .title {
@@ -124,7 +123,7 @@
 }
 
 /* Desktop - starting from 1024px to give more room for the map */
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
     .contentWrapper {
         flex-direction: row;
         min-height: 600px;
@@ -137,8 +136,34 @@
         border-right: 1px solid var(--secondary4);
     }
 
+
     .mapSection {
         width: 65%; /* Map takes approx 2/3 */
         min-height: auto;
+    }
+}
+
+@media (max-width: 991px){
+
+    .title{
+        margin-bottom: 0px;
+    }
+    .formSection input{
+        padding: 10px;
+    }
+
+    .contentWrapper {
+        border: none;
+        border-radius: 0;
+        overflow: visible; /* allow .mapSection negative margins to be visible on small screens */
+    }
+    .mapSection {
+        /* ignore only parent's horizontal padding (20px) so map spans full width */
+        --side: 20px;
+        margin: 0 calc(-1 * var(--side));
+        width: calc(100% + 2 * var(--side));
+        padding: 0;
+        box-sizing: border-box;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     }
 }

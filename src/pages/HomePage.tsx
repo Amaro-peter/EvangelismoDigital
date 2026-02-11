@@ -49,9 +49,9 @@ const HomePage = ({ section }: HomePageProps) => {
         <Artigos />
       </div>
       <div ref={quemSomosRef} className={`mt-5 jumbotron jumbotron-fluid ${styles.quemSomos}`}>
-        <QuemSomos/>
+        <QuemSomos href={'#contatosRef'}/>
       </div>
-      <div ref={contatosRef} className='container form'>
+      <div ref={contatosRef} className='container form' id="contatosRef">
         <FormContatoHome/>
       </div>
       <div className='container mt-5'>

@@ -1,16 +1,25 @@
 .active-navlink {
     background-color: #f7a893 !important;
+}
+
+/* Apply padding to Bootstrap's global .nav-link */
+:global(.nav-link) {
+    padding-left: 10px;
     border-radius: 8px !important;
 }
-.navbar .nav-item a{
-    padding-left: 30px;
+
+:global(.nav-link):hover {
+    background-color: #ffcec0 !important;
 }
+
+/* Module-scoped styling for the navbar wrapper (applied via styles.navbar) */
 .navbar {
     border-bottom: 1px solid #F05228;
 }
 
 @media (max-width: 991px) {
-    .navbar .navbar-collapse{
+    /* Target the Bootstrap .navbar-nav globally inside media queries */
+    :global(.navbar-nav) {
         margin-top: 15px;
     }
 }

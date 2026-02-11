@@ -2,10 +2,9 @@
 
 .wrapper {
   /* Cores */
-  background-color: #fff7ed; /* Orange-50 */
-  border: 4px solid #f97316; /* Orange-500 */
-  
-  /* Layout: Breakout (Quebra o container pai para ocupar a tela toda) */
+  background-color: var(--secundary5); 
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
   width: 100vw;
   position: relative;
   left: 50%;
@@ -13,13 +12,11 @@
   margin-left: -50vw;
   margin-right: -50vw;
   
-  /* Espaçamento Vertical */
   padding-top: 80px;
   padding-bottom: 80px;
   margin-top: 2rem;
   margin-bottom: 2rem;
   
-  /* Garante que o box model não cause bugs de tamanho */
   box-sizing: border-box; 
 }
 
@@ -29,7 +26,6 @@
   margin: 0 auto;    /* Centraliza o conteúdo */
   padding: 0 10px;   /* Margem de segurança para mobile */
   
-  /* Typography */
   font-family: "Arimo", sans-serif;
   overflow-wrap: break-word;
 }
@@ -40,30 +36,31 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 24px;
+  text-decoration: underline;
 }
 
 .content {
-  color: black;
+  color: var(--black);
   font-size: 1.4rem;
   text-align: justify;
-  line-height: 1.8; /* Aumentei levemente para melhor leitura */
-  font-weight: bold;
-  /* Limita a largura do texto para não cansar a vista em telas wide */
+  line-height: 1.8; 
   max-width: 900px; 
-  margin: 0 auto; /* Centraliza o bloco de texto */
+  margin: 0 auto; 
+  text-indent:30px;
 }
 
 @media (max-width: 991px) {
   .wrapper {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 30px 20px;
+    border-radius: 20px 20px 0 0 ;
   }
   
   .title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   
   .content {
     font-size: 1.3rem;
+    text-indent:10px;
   }
 }
