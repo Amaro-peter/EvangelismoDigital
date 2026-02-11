@@ -8,7 +8,7 @@ import { useState, useMemo } from 'react';
 const Artigos = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
-  const perPage = 6;
+  const perPage = 3;
 
   const totalPages = Math.max(1, Math.ceil(articlesIndex.length / perPage));
 
