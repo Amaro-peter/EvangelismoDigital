@@ -14,7 +14,7 @@ const NavBar = () => {
                 aria-current="page"
                 to="/?section=artigos"
             >
-                <img src="/FaithTech Logo Text - Grey Orange (1) 1.svg" alt="FaithTech" style={{maxHeight: "50px"}}/>
+                <img src="/FaithTech Logo Text - Grey Orange (1) 1.png" alt="FaithTech" style={{maxHeight: "30px"}}/>
             </NavLink>
                 
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

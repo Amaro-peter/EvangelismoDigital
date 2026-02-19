@@ -42,7 +42,7 @@ const HomePage = ({ section }: HomePageProps) => {
         ogType="website"
         schemaType="WebPage"
         url="/"
-        imageAlt="Evangelismo Digital - Compartilhando a mensagem de esperança pela internet"
+        imageAlt="Evangelismo Digital - Compartilhando a mensagem da esperança pela internet"
       />
       
       <div ref={artigosRef} className='container mt-5'>
